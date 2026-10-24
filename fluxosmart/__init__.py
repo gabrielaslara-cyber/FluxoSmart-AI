@@ -1,0 +1,1 @@
+"""FluxoSmart AI analytics package."""
