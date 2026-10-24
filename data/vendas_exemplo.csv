@@ -1,0 +1,9 @@
+data,produto,categoria,quantidade,preco_unitario,pedido_id
+2026-01-01,Café,Alimentos,2,15.00,P001
+2026-01-02,Chá,Alimentos,3,12.00,P002
+2026-01-03,Caderno,Papelaria,4,18.50,P003
+2026-01-04,Caneta,Papelaria,10,3.50,P004
+2026-01-05,Café,Alimentos,1,15.00,P005
+2026-01-06,Caneta,Papelaria,7,3.50,P006
+2026-01-07,Caderno,Papelaria,2,18.50,P007
+2026-01-08,Chá,Alimentos,5,12.00,P008
