@@ -4,6 +4,7 @@ import pandas as pd
 import streamlit as st
 from fluxosmart.analytics import prepare_sales, summarize_sales
 from fluxosmart.diagnostics import diagnose_sales
+from fluxosmart.reports import build_sales_report
 
 st.set_page_config(page_title="FluxoSmart AI", page_icon="📊", layout="wide")
 st.title("📊 FluxoSmart AI")
@@ -59,6 +60,9 @@ for insight in diagnose_sales(filtered):
         st.warning(message)
     else:
         st.info(message)
+st.subheader("📄 Relatório gerencial em PDF")
+st.caption("O relatório usa somente os dados filtrados acima.")
+st.download_button("Baixar relatório gerencial (PDF)", data=build_sales_report(filtered), file_name="fluxosmart_relatorio_gerencial.pdf", mime="application/pdf")
 st.subheader("Dados filtrados")
 st.dataframe(filtered, use_container_width=True)
 st.download_button("Exportar dados filtrados (CSV)", data=filtered.to_csv(index=False).encode("utf-8-sig"),
