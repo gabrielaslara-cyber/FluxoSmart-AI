@@ -3,6 +3,7 @@ from pathlib import Path
 import pandas as pd
 import streamlit as st
 from fluxosmart.analytics import prepare_sales, summarize_sales
+from fluxosmart.diagnostics import diagnose_sales
 
 st.set_page_config(page_title="FluxoSmart AI", page_icon="📊", layout="wide")
 st.title("📊 FluxoSmart AI")
@@ -50,6 +51,14 @@ with right:
     st.subheader("Faturamento por categoria")
     by_cat = filtered.groupby("categoria")["faturamento"].sum().sort_values(ascending=False)
     st.bar_chart(by_cat)
+st.subheader("🔎 Diagnóstico automático de vendas")
+st.caption("Análises explicáveis sem IA generativa nem custos de API. Considere margens, estoque e sazonalidade antes de agir.")
+for insight in diagnose_sales(filtered):
+    message = "**{}** — {}".format(insight["titulo"], insight["descricao"])
+    if insight["nivel"] == "atencao":
+        st.warning(message)
+    else:
+        st.info(message)
 st.subheader("Dados filtrados")
 st.dataframe(filtered, use_container_width=True)
 st.download_button("Exportar dados filtrados (CSV)", data=filtered.to_csv(index=False).encode("utf-8-sig"),
