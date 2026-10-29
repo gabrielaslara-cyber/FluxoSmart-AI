@@ -10,22 +10,42 @@ st.set_page_config(page_title="FluxoSmart AI | Gestão inteligente", page_icon="
 
 st.markdown("""
 <style>
-.block-container {padding-top: 2rem; max-width: 1450px}
-[data-testid="stMetric"] {background: #f1f7fa; border: 1px solid #dce9ee; border-radius: 14px; padding: 16px 18px}
-[data-testid="stMetricLabel"] {color:#496272}
-[data-testid="stMetricValue"] {color:#102f42; font-weight:700}
-.hero {padding:24px 28px; border-radius:20px; background:linear-gradient(115deg,#103b53,#087f80); color:white; margin-bottom:20px}
-.hero h1 {color:white!important; margin:0; font-size:2.1rem}
-.hero p {color:#d9f5f3!important; margin:8px 0 0}
-.small-note {color:#64748b; font-size:.9rem}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+html, body, [class*="css"], [data-testid="stApp"] {font-family:'Inter',sans-serif}
+[data-testid="stAppViewContainer"] {background: #f5f8f7}
+.block-container {padding-top:2.3rem; padding-bottom:4rem; max-width:1480px}
+[data-testid="stSidebar"] {background:linear-gradient(180deg,#0e2928,#102c2b 65%,#163e37)!important}
+[data-testid="stSidebar"] * {color:#eafcf7!important}
+[data-testid="stSidebar"] label {color:#e5f8f0!important}
+[data-testid="stSidebar"] [data-baseweb="select"] * {color:#1a3330!important}
+[data-testid="stSidebar"] [data-testid="stFileUploader"] {border-radius:12px}
+.hero {padding:36px 39px; border-radius:24px; background:linear-gradient(110deg,#0b2929 0%,#145e50 60%,#20a57b 100%); box-shadow:0 12px 32px rgba(10,55,47,.13);margin:0 0 24px; position:relative;overflow:hidden}
+.hero:after {content:"";position:absolute;width:300px;height:300px;right:-70px;top:-170px;background:rgba(147,255,207,.08);border:2px solid rgba(193,255,222,.14);border-radius:50%}
+.hero .eyebrow {font-size:.74rem;letter-spacing:.18em;font-weight:800;color:#97f5c7;margin-bottom:12px}
+.hero h1 {font-size:2.45rem;line-height:1.1;color:#fff!important;margin:0;font-weight:800;letter-spacing:-.04em}
+.hero p {font-size:1rem;color:#c8f0e3!important;margin:14px 0 0}
+.pill {display:inline-block;margin-top:20px;padding:7px 14px;border-radius:100px;background:rgba(161,255,206,.13);border:1px solid rgba(184,255,221,.28);font-size:.78rem;color:#d4ffe7;font-weight:600}
+[data-testid="stMetric"] {background:#fff;border:1px solid #e1ece8;border-radius:20px;padding:22px 22px 20px;box-shadow:0 4px 15px rgba(28,69,57,.045);min-height:136px}
+[data-testid="stMetricLabel"] {color:#74847d!important;font-size:.86rem}
+[data-testid="stMetricValue"] {color:#173a31!important;font-size:1.8rem;font-weight:800}
+[data-testid="stMetric"]::before {content:"";display:block;width:30px;height:4px;border-radius:5px;background:#28c68c;margin-bottom:12px}
+[data-testid="stTabs"] [data-baseweb="tab-list"] {gap:8px;padding:8px;background:#e9f1ee;border-radius:14px}
+[data-testid="stTabs"] [data-baseweb="tab"] {border-radius:10px;padding:12px 19px;font-weight:600;color:#536e63}
+[data-testid="stTabs"] [aria-selected="true"] {background:#fff!important;color:#0a8061!important;box-shadow:0 2px 9px rgba(10,58,45,.08)}
+[data-testid="stTabs"] [data-baseweb="tab-highlight"] {background:transparent}
+[data-testid="stVerticalBlockBorderWrapper"] {border-radius:16px}
+[data-testid="stDataFrame"] {border-radius:14px;overflow:hidden}
+.stDownloadButton button {background:#0f8769!important;color:white!important;border:0!important;border-radius:12px!important;font-weight:700;padding:12px 20px}
+.stDownloadButton button:hover {background:#08684f!important}
+h2,h3 {color:#1b4238!important;letter-spacing:-.02em}
 </style>
 """, unsafe_allow_html=True)
 
-st.markdown('<div class="hero"><h1>📊 FluxoSmart AI</h1><p>Inteligência de vendas para pequenos negócios · Dashboard 2.0</p></div>', unsafe_allow_html=True)
+st.markdown('<div class="hero"><div class="eyebrow">● BUSINESS INTELLIGENCE • 2.0</div><h1>FluxoSmart AI <span style="color:#8ef0bc">↗</span></h1><p>Transforme planilhas em decisões inteligentes para seu negócio.</p><span class="pill">✦ Painel demonstrativo · Análise de vendas</span></div>', unsafe_allow_html=True)
 st.caption("Demonstração com dados fictícios. Diagnósticos baseados em regras, sem IA generativa.")
 
 with st.sidebar:
-    st.title("⚙️ Painel de controle")
+    st.title("◈ FluxoSmart")\n    st.caption("WORKSPACE / ANALYTICS")\n    st.markdown("### ⚙️ Controle do painel")
     st.markdown("**Fonte dos dados**")
     upload = st.file_uploader("Envie Excel ou CSV", type=["xlsx", "csv"])
     st.caption("Não envie informações pessoais ou sigilosas para esta demonstração pública.")
