@@ -45,7 +45,9 @@ st.markdown('<div class="hero"><div class="eyebrow">● BUSINESS INTELLIGENCE �
 st.caption("Demonstração com dados fictícios. Diagnósticos baseados em regras, sem IA generativa.")
 
 with st.sidebar:
-    st.title("◈ FluxoSmart")\n    st.caption("WORKSPACE / ANALYTICS")\n    st.markdown("### ⚙️ Controle do painel")
+    st.title("◈ FluxoSmart")
+    st.caption("WORKSPACE / ANALYTICS")
+    st.markdown("### ⚙️ Controle do painel")
     st.markdown("**Fonte dos dados**")
     upload = st.file_uploader("Envie Excel ou CSV", type=["xlsx", "csv"])
     st.caption("Não envie informações pessoais ou sigilosas para esta demonstração pública.")
