@@ -1,87 +1,51 @@
-# FluxoSmart AI 📊
+# FluxoSmart AI Premium — Portfólio de Python e Business Intelligence
 
-Dashboard de análise de vendas para pequenos negócios, desenvolvido por **Gabriela de Souza Lara** em **Python e Streamlit**.
+**Aplicação web demonstrativa** para transformar planilhas de vendas em indicadores, gráficos, diagnósticos descritivos e relatórios gerenciais em PDF. Criada por **Gabriela de Souza Lara** com Python, Streamlit, Pandas e ReportLab.
 
-> **MVP demonstrativo:** a versão atual oferece análise descritiva de dados, sem IA generativa. Funcionalidades de IA estão no planejamento futuro.
+**[Experimentar o aplicativo online](https://fluxosmart-ai-premium.streamlit.app/)** · [Código desta versão](https://github.com/gabrielaslara-cyber/FluxoSmart-AI/tree/feature/relatorio-premium)
 
-## Funcionalidades
+> **Transparência:** análises baseadas em regras, sem IA generativa ou previsões. Resultados demonstrados com dados fictícios. Não substitui avaliação de custos, margem e estoque.
 
-- Upload de arquivos Excel (`.xlsx`) ou CSV;
-- Indicadores de faturamento, quantidade vendida e ticket médio;
-- Filtros por categoria e período;
-- Gráficos de faturamento diário e por categoria;
-- Exportação dos dados filtrados para CSV;
-- Exemplo de vendas fictícias em `data/vendas_exemplo.csv`;
-- Testes automatizados com pytest.
+## Funcionalidades da versão Premium
 
-## Instalação
+- Importação de dados Excel/CSV e filtros por categoria e período.
+- Faturamento, unidades vendidas, pedidos e ticket médio.
+- Gráficos por categoria, produto e evolução das vendas.
+- Diagnósticos por regras: categoria líder, produto mais vendido e comparação entre dias com vendas.
+- Download de dados filtrados em CSV e **relatório gerencial PDF de duas páginas**, incluindo gráficos, diagnósticos, recomendações e data de emissão.
 
-Requer Python 3.10 ou superior.
+## Demonstração validada
+
+Com a planilha fictícia de 01/01 a 08/01/2026, o relatório gerado apresentou **R$ 311,50** de faturamento, **34 unidades**, **8 pedidos**, **R$ 38,94** de ticket médio, categoria líder **Papelaria (54,7%)**, produto mais vendido em unidades **Caneta (17)** e variação de **−22,0%** na comparação descritiva entre metades dos dias com vendas.
+
+**Estado:** geração de PDF e indicadores validados com dados de exemplo. Testes abrangentes com planilhas externas, múltiplos formatos e casos extremos ainda são necessários antes de uso comercial.
+
+## Executar a versão premium localmente
 
 ```bash
-python -m venv .venv
-# Windows: .venv\Scripts\activate
-# Linux/macOS: source .venv/bin/activate
 pip install -r requirements.txt
-streamlit run app.py
+streamlit run app_premium.py
 ```
 
-## Como usar
+**Tecnologias:** Python · Streamlit · Pandas · ReportLab · GitHub · pytest
 
-1. Execute `streamlit run app.py`.
-2. Explore os dados fictícios carregados automaticamente ou envie sua planilha Excel/CSV.
-3. Filtre categorias e datas, analise os gráficos e exporte os dados.
+## Formato da planilha
 
-### Formato esperado
+| Coluna | Tipo |
+|---|---|
+| `data` | data |
+| `produto` | texto |
+| `categoria` | texto |
+| `quantidade` | número positivo |
+| `preco_unitario` | preço não negativo |
+| `pedido_id` | opcional |
 
-| Coluna | Tipo | Exemplo |
-|---|---|---|
-| `data` | data | `2026-01-15` |
-| `produto` | texto | `Café` |
-| `categoria` | texto | `Alimentos` |
-| `quantidade` | positivo | `2` |
-| `preco_unitario` | número não negativo (R$) | `12.50` |
-| `pedido_id` | texto, opcional | `P001` |
+## Próximos passos
 
-Com `pedido_id`, o ticket médio considera pedidos distintos; sem ele, considera registros. Não são contabilizados descontos, impostos e devoluções.
+Validar casos extremos e planilhas adicionais, melhorar testes de interface, criar capturas de tela do dashboard e expandir diagnósticos com custos e margens. IA generativa é uma possibilidade futura, não recurso disponível.
 
-## Testes
+## Autoria
 
-```bash
-python -m pytest -q
-```
+**Gabriela de Souza Lara** · [Perfil GitHub](https://github.com/gabrielaslara-cyber)
 
-## Estrutura
-
-```text
-app.py
-fluxosmart/
-  __init__.py
-  analytics.py
-data/
-  vendas_exemplo.csv
-tests/
-  test_analytics.py
-.streamlit/
-  config.toml
-requirements.txt
-README.md
-```
-
-## Próximas etapas
-
-- Indicadores de margem, custos e metas;
-- Comparativos mensais;
-- Alertas de tendências com metodologia explicável;
-- Assistente de IA com fontes, limites e supervisão humana;
-- Publicação de uma demonstração em nuvem.
-
-## Privacidade
-
-Os dados de demonstração são fictícios. Não publique dados pessoais ou comerciais sigilosos no repositório público.
-
-## Autoria e licença
-
-**Gabriela de Souza Lara** — portfólio de programação Python, análise de dados e aplicações web.
-
-Distribuído sob a [Licença MIT](LICENSE).
+---
