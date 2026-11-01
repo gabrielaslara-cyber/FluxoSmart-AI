@@ -1,0 +1,16 @@
+name: Verificar relatorio premium
+on:
+  push:
+    branches: [feature/relatorio-premium]
+  workflow_dispatch:
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt pypdf
+      - run: python -m compileall -q app_premium.py fluxosmart
+      - run: python -m pytest -q
